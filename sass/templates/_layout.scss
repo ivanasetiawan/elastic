@@ -1,0 +1,25 @@
+// Layout
+header {background: #1797b2;}
+hgroup {@extend %wrapper;}
+nav { background: green;
+	ul {@extend %wrapper;}
+}
+
+.main-container {
+	background: red;
+}
+
+.content {
+	background: blue;
+	> div {@extend %wrapper;}
+}
+
+aside {
+	background: yellow;
+	> div {@extend %wrapper;}
+}
+
+footer {
+	background: brown;
+	> div {@extend %wrapper;}
+}
