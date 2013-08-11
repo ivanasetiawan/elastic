@@ -3,21 +3,22 @@
 
 // Layout spices
 header {color: #fff; text-align: center; background: $color-dark;
-	h2 {font-size: $h5-font-size; font-family: $font-content; margin: 20px 0;}
+	h1 {padding-top: 20px;}
+	h2 {font-size: $h5-font-size; font-family: $font-content; padding: 20px 0;}
 }
 
-nav { background: $color-blue; }
+nav { background: $color-blue; padding: 20px 0; margin-bottom: $spacing-bottom;}
 
 // Whole section
 body { background: $color-creme; }
 
 // Content box for two columns
 .narrow-content { background: $color-rose; }
+.two-cols {overflow: hidden; margin-bottom: $spacing-bottom !important;}
 
 // Content box for full width
 .content {
 	li { background: #fff; }
-	.boxes-three{ margin-top: 25px; }
 }
 
 // Aside box for two columns
@@ -25,6 +26,6 @@ aside { background: $color-orange; }
 
 // Footer
 footer {
-	margin-top: -100px;
+	margin-top: -140px;
 	background: $color-dark; color: #fff;
 }

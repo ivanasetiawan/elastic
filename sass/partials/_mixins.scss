@@ -4,10 +4,13 @@
     @media (max-width: 1600px) { @content; }
   }
   @else if $point == medium-size {
-    @media (min-width: 1250px) { @content; }
+    @media (max-width: 1250px) { @content; }
   }
   @else if $point == baby-size {
     @media (max-width: 650px)  { @content; }
+  }
+  @else if $point == tiny-size {
+    @media (max-width: 400px)  { @content; }
   }
 }
 
