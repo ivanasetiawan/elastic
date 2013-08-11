@@ -3,12 +3,16 @@
 // Compass imports & mixins
 @import "compass";
 @import "blueprint/grid";
-@import "compass/layout.scss";
+@import "compass/layout/sticky-footer";
 
 body {
-	font-size: 16px;
+	font-size: $base-font-size;
 	margin: 0;
 	color: #333;
+	font-family: $font-content;
 }
 
 h1, h2, h3, p {margin: 0;}
+
+h1 {font-family: $font-cursive; font-size: $h1-font-size;}
+h2 {font-family: $font-cursive; font-size: $h2-font-size;}

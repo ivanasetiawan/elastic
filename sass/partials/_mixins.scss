@@ -3,10 +3,14 @@
   @if $point == papa-bear {
     @media (max-width: 1600px) { @content; }
   }
-  @else if $point == mama-bear {
+  @else if $point == medium-size {
     @media (min-width: 1250px) { @content; }
   }
-  @else if $point == baby-bear {
+  @else if $point == baby-size {
     @media (max-width: 650px)  { @content; }
   }
+}
+
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
 }

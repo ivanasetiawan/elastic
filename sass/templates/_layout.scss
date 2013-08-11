@@ -1,60 +1,63 @@
-// Layout
-header {background: #1797b2;}
-
+// Layout core
 hgroup {@extend %wrapper;}
 
-nav { background: green;
-	> div {@extend %wrapper;}
-}
+nav > div {@extend %wrapper;}
 
 // Whole section
 .main-container {
 	> div {@extend %wrapper;}
-	background: red;
 }
 
 // Content box for two columns
 .narrow-content {
-	background: blue;
-	@include breakpoint(mama-bear) {
+	padding: 2%;
+	@include breakpoint(medium-size) {
 		float: left;
-		width: 70%;
+		width: 66%;
 	}
 }
 
 // Content box for full width
 .content {
 	width: 100%;
-	ul {
-		@extend %clearlist; 
-		overflow: hidden;
+	ul {@extend %clearlist; overflow: hidden; margin-bottom: $spacing-bottom;}
+
+	.boxes-four{
 		margin-left: (-21px/$width-basic)*100%;
+		li {
+			float: left;
+			width: (285px/($width-basic + 20px))*100%;
+			margin-left: (20px/($width-basic + 20px))*100%;
+		}	
 	}
-	li {
-		float: left;
-		width: (285px/($width-basic + 20px))*100%;
-		margin-left: (20px/($width-basic + 20px))*100%;
-		background: #fff;
+
+	.boxes-three{
+		margin-left: (-31px/$width-basic)*100%;
+		li {
+			float: left;
+			width: (380px/($width-basic + 30px))*100%;
+			margin-left: (30px/($width-basic + 30px))*100%;
+		}	
 	}
+	p {margin: 5%;}
 }
 
 // Aside box for two columns
 aside {
-	background: yellow;
-	@include breakpoint(mama-bear) {
-		width: 30%;
+	padding: 2%;
+	@include breakpoint(medium-size) {
+		width: 26%;
 		float: right;
 	}
 }
 
 // Footer
 footer {
-	background: brown;
 	> div {@extend %wrapper;}
-	@include breakpoint(mama-bear) {
+	@include breakpoint(medium-size) {
 		clear: both;
 	}	
 }
 
-@include sticky-footer(100px, "#layout", "#layout_footer", "#footer");
+@include sticky-footer(100px);
  

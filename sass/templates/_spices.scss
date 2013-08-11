@@ -1,0 +1,30 @@
+// Spices: Extra shizzle that has nothing to do with the layout appearence. 
+// Such as colours, font-size, etc.
+
+// Layout spices
+header {color: #fff; text-align: center; background: $color-dark;
+	h2 {font-size: $h5-font-size; font-family: $font-content; margin: 20px 0;}
+}
+
+nav { background: $color-blue; }
+
+// Whole section
+body { background: $color-creme; }
+
+// Content box for two columns
+.narrow-content { background: $color-rose; }
+
+// Content box for full width
+.content {
+	li { background: #fff; }
+	.boxes-three{ margin-top: 25px; }
+}
+
+// Aside box for two columns
+aside { background: $color-orange; }
+
+// Footer
+footer {
+	margin-top: -100px;
+	background: $color-dark; color: #fff;
+}
