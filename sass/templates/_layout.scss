@@ -1,25 +1,60 @@
 // Layout
 header {background: #1797b2;}
+
 hgroup {@extend %wrapper;}
+
 nav { background: green;
-	ul {@extend %wrapper;}
+	> div {@extend %wrapper;}
 }
 
+// Whole section
 .main-container {
+	> div {@extend %wrapper;}
 	background: red;
 }
 
-.content {
+// Content box for two columns
+.narrow-content {
 	background: blue;
-	> div {@extend %wrapper;}
+	@include breakpoint(mama-bear) {
+		float: left;
+		width: 70%;
+	}
 }
 
+// Content box for full width
+.content {
+	width: 100%;
+	ul {
+		@extend %clearlist; 
+		overflow: hidden;
+		margin-left: (-21px/$width-basic)*100%;
+	}
+	li {
+		float: left;
+		width: (285px/($width-basic + 20px))*100%;
+		margin-left: (20px/($width-basic + 20px))*100%;
+		background: #fff;
+	}
+}
+
+// Aside box for two columns
 aside {
 	background: yellow;
-	> div {@extend %wrapper;}
+	@include breakpoint(mama-bear) {
+		width: 30%;
+		float: right;
+	}
 }
 
+// Footer
 footer {
 	background: brown;
 	> div {@extend %wrapper;}
+	@include breakpoint(mama-bear) {
+		clear: both;
+	}	
 }
+
+@include sticky-footer(100px, "#layout", "#layout_footer", "#footer");
+ 
