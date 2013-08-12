@@ -11,10 +11,8 @@ nav > div {@extend %wrapper;}
 // Content box for two columns
 .narrow-content {
 	padding: 2%;
-	@include breakpoint(medium-size) {
-		float: left;
-		width: 66%;
-	}
+	float: left;
+	width: 66%;
 	@include breakpoint(baby-size) {
 		float: none;
 		width: 100%;
@@ -27,14 +25,16 @@ nav > div {@extend %wrapper;}
 	ul {@extend %clearlist; overflow: hidden; margin-bottom: $spacing-bottom;}
 	li {margin-bottom: 20px;}
 	.boxes-four{
-		margin-left: (-21px/$width-basic)*100%;
+		margin-left: (-$spacing-horizontal-twenty/$width-basic)*100%;
 		li {
 			float: left;
-			width: (285px/($width-basic + 20px))*100%;
-			margin-left: (20px/($width-basic + 20px))*100%;
+			width: ((($width-basic - ($spacing-horizontal-twenty * 3))/4) / ($width-basic + $spacing-horizontal-twenty))*100%;
+			margin-left: ($spacing-horizontal-twenty/($width-basic + $spacing-horizontal-twenty))*100%;
 		}
-		@include breakpoint(baby-size) {
-			li { width: (580px/($width-basic + 20px))*100%; }
+		@include breakpoint(medium-size) {
+			li { 
+				width: ((($width-basic - ($spacing-horizontal-twenty * 2))/2) / ($width-basic + $spacing-horizontal-twenty))*100%;
+			}
 		}	
 		@include breakpoint(tiny-size) {
 			li { width: 100%; margin-left: 0;}
@@ -42,14 +42,14 @@ nav > div {@extend %wrapper;}
 	}
 
 	.boxes-three{
-		margin-left: (-31px/$width-basic)*100%;
+		margin-left: (-$spacing-horizontal-thirty/$width-basic)*100%;
 		li {
 			float: left;
-			width: (380px/($width-basic + 30px))*100%;
-			margin-left: (30px/($width-basic + 30px))*100%;
+			width: ((($width-basic - ($spacing-horizontal-thirty*2))/3)/($width-basic + $spacing-horizontal-thirty))*100%;
+			margin-left: ($spacing-horizontal-thirty/($width-basic + $spacing-horizontal-thirty))*100%;
 		}
-		@include breakpoint(baby-size) {
-			li { width: (580px/($width-basic + 20px))*100%; }
+		@include breakpoint(medium-size) {
+			li {width: ((($width-basic - ($spacing-horizontal-twenty * 2))/2) / ($width-basic + $spacing-horizontal-twenty))*100%;}
 		}
 		@include breakpoint(tiny-size) {
 			li { width: 100%; margin-left: 0;}
@@ -61,11 +61,9 @@ nav > div {@extend %wrapper;}
 // Aside box for two columns
 aside {
 	padding: 2%;
+	width: 26%;
+	float: right;
 	@include breakpoint(medium-size) {
-		width: 26%;
-		float: right;
-	}
-	@include breakpoint(baby-size) {
 		float: none;
 		width: 100%;
 	}
@@ -74,7 +72,7 @@ aside {
 // Footer
 footer {
 	> div {@extend %wrapper;}
-	@include breakpoint(medium-size) {
+	@include breakpoint(large-size) {
 		clear: both;
 	}	
 }

@@ -1,12 +1,9 @@
 // Mixins
 @mixin breakpoint($point) {
-  @if $point == papa-bear {
-    @media (max-width: 1600px) { @content; }
-  }
-  @else if $point == medium-size {
+  @if $point == large-size {
     @media (max-width: 1250px) { @content; }
   }
-  @else if $point == baby-size {
+  @else if $point == medium-size {
     @media (max-width: 650px)  { @content; }
   }
   @else if $point == tiny-size {
