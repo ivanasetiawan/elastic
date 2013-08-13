@@ -1,7 +1,17 @@
 // Layout core
 hgroup {@extend %wrapper;}
 
-nav > div {@extend %wrapper;}
+nav { > div, > ul {@extend %wrapper;}
+	.toggle-menu {width: 100%; padding: 0; text-align: center; display: none;}
+	@include breakpoint(medium-size) {
+		ul {display: none;
+			&.show {display: block;
+				li {float: none; a {text-align: center;}}
+			}
+		}
+		.toggle-menu {display: block;}
+	}
+}
 
 // Whole section
 .main-container {
@@ -13,9 +23,9 @@ nav > div {@extend %wrapper;}
 	padding: 2%;
 	float: left;
 	width: 66%;
-	@include breakpoint(baby-size) {
+	@include breakpoint(medium-size) {
 		float: none;
-		width: 100%;
+		width: 96%;
 	}
 }
 
@@ -24,38 +34,60 @@ nav > div {@extend %wrapper;}
 	width: 100%;
 	ul {@extend %clearlist; overflow: hidden; margin-bottom: $spacing-bottom;}
 	li {margin-bottom: 20px;}
-	.boxes-four{
-		margin-left: (-$spacing-horizontal-twenty/$width-basic)*100%;
-		li {
-			float: left;
-			width: ((($width-basic - ($spacing-horizontal-twenty * 3))/4) / ($width-basic + $spacing-horizontal-twenty))*100%;
-			margin-left: ($spacing-horizontal-twenty/($width-basic + $spacing-horizontal-twenty))*100%;
-		}
-		@include breakpoint(medium-size) {
-			li { 
-				width: ((($width-basic - ($spacing-horizontal-twenty * 2))/2) / ($width-basic + $spacing-horizontal-twenty))*100%;
-			}
-		}	
-		@include breakpoint(tiny-size) {
-			li { width: 100%; margin-left: 0;}
-		}	
-	}
-
-	.boxes-three{
-		margin-left: (-$spacing-horizontal-thirty/$width-basic)*100%;
-		li {
-			float: left;
-			width: ((($width-basic - ($spacing-horizontal-thirty*2))/3)/($width-basic + $spacing-horizontal-thirty))*100%;
-			margin-left: ($spacing-horizontal-thirty/($width-basic + $spacing-horizontal-thirty))*100%;
-		}
-		@include breakpoint(medium-size) {
-			li {width: ((($width-basic - ($spacing-horizontal-twenty * 2))/2) / ($width-basic + $spacing-horizontal-twenty))*100%;}
-		}
-		@include breakpoint(tiny-size) {
-			li { width: 100%; margin-left: 0;}
-		}	
-	}
 	p {margin: 5%;}
+}
+
+.image-box {img {@extend %fleximage;}
+	float: left; margin: 0 $spacing-twenty 0 0;
+	&.on-right {float: right; margin: 0 0 0 $spacing-twenty;}
+	@include breakpoint(medium-size) {float: none !important; margin: 0 auto $spacing-twenty !important;}
+}
+
+// .boxes-four{
+// 	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
+// 	li {
+// 		float: left;
+// 		width: ((($width-basic - ($spacing-thirty*3))/4) / ($width-basic + $spacing-thirty))*100%;
+// 		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
+// 	}
+// 	@include breakpoint(medium-size) {
+// 		li {
+// 			width: ((($width-basic - ($spacing-thirty * 2))/2) / ($width-basic + $spacing-thirty))*100%;
+// 		}
+// 	}
+// 	@include breakpoint(tiny-size) {
+// 		li { width: 100%; margin-left: 0;}
+// 	}
+// }
+
+.boxes-three {
+	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
+	li {
+		float: left;
+		width: ((($width-basic - ($spacing-thirty*2))/3)/($width-basic + $spacing-thirty))*100%;
+		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
+	}
+	@include breakpoint(medium-size) {
+		li {width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;}
+	}
+	@include breakpoint(tiny-size) {
+		li { width: 100%; margin-left: 0;}
+	}
+}
+
+.boxes-four {
+	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
+ 	li {
+ 		float: left;
+ 		width: ((($width-basic - ($spacing-thirty*3))/4) / ($width-basic + $spacing-thirty))*100%;
+ 		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
+ 	}
+	@include breakpoint(medium-size) {
+		li {width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;}
+	}
+	@include breakpoint(tiny-size) {
+		li { width: 100%; margin-left: 0;}
+	}
 }
 
 // Aside box for two columns
@@ -65,7 +97,7 @@ aside {
 	float: right;
 	@include breakpoint(medium-size) {
 		float: none;
-		width: 100%;
+		width: 96%;
 	}
 }
 
@@ -74,8 +106,8 @@ footer {
 	> div {@extend %wrapper;}
 	@include breakpoint(large-size) {
 		clear: both;
-	}	
+	}
 }
 
 @include sticky-footer(100px);
- 
+

@@ -1,11 +1,16 @@
 // Reuseable chunks
+%clearlist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 %wrapper {
 	max-width: $width-basic;
 	margin: 0 auto;
 }
 
-%clearlist {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+%fleximage {
+	width: 100%;
+	height: auto;
 }

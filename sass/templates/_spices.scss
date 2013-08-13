@@ -1,4 +1,4 @@
-// Spices: Extra shizzle that has nothing to do with the layout appearence. 
+// Spices: Extra shizzle that has nothing to do with the layout appearence.
 // Such as colours, font-size, etc.
 
 // Layout spices
@@ -7,13 +7,14 @@ header {color: #fff; text-align: center; background: $color-dark;
 	h2 {font-size: $h5-font-size; font-family: $font-content; padding: 20px 0;}
 }
 
-nav { background: $color-blue; padding: 20px 0; margin-bottom: $spacing-bottom;}
-
 // Whole section
 body { background: $color-creme; }
 
 // Content box for two columns
-.narrow-content { background: $color-rose; }
+.narrow-content { background: $color-rose;
+	// For this example, we decided to keep the width of images 320px
+	.image-box {width: 320px;}
+}
 .two-cols {overflow: hidden; margin-bottom: $spacing-bottom !important;}
 
 // Content box for full width
@@ -25,7 +26,14 @@ body { background: $color-creme; }
 aside { background: $color-orange; }
 
 // Footer
-footer {
-	margin-top: -140px;
-	background: $color-dark; color: #fff;
+footer {margin-top: -140px; background: $color-dark; color: #fff;}
+
+nav {background: $color-blue; margin-bottom: $spacing-bottom;
+	ul {@extend %clearlist; overflow: hidden;}
+	li {float: left;}
+	a {color: #fff; display: block; padding: 10px;}
+	.toggle-menu {background: rgba(0, 0, 0, 0.3);}
 }
+
+.content {margin-bottom: $spacing-bottom;}
+
