@@ -44,18 +44,7 @@ nav { > div, > ul {@extend %wrapper;}
 }
 
 .boxes-three {
-	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
-	li {
-		float: left;
-		width: ((($width-basic - ($spacing-thirty*2))/3)/($width-basic + $spacing-thirty))*100%;
-		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
-	}
-	@include breakpoint(medium-size) {
-		li {width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;}
-	}
-	@include breakpoint(tiny-size) {
-		li { width: 100%; margin-left: 0;}
-	}
+	@include boxes(3);
 	&.custom-left {
 		@include customBoxes(200px, left);
 	}
@@ -65,18 +54,7 @@ nav { > div, > ul {@extend %wrapper;}
 }
 
 .boxes-four {
-	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
- 	li {
- 		float: left;
- 		width: ((($width-basic - ($spacing-thirty*3))/4) / ($width-basic + $spacing-thirty))*100%;
- 		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
- 	}
-	@include breakpoint(medium-size) {
-		li {width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;}
-	}
-	@include breakpoint(tiny-size) {
-		li { width: 100%; margin-left: 0;}
-	}
+	@include boxes(4);
 }
 
 // Aside box for two columns
