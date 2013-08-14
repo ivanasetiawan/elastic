@@ -34,7 +34,7 @@ nav { > div, > ul {@extend %wrapper;}
 	width: 100%;
 	ul {@extend %clearlist; overflow: hidden; margin-bottom: $spacing-bottom;}
 	li {margin-bottom: 20px;}
-	p {margin: 5%;}
+	p {margin: 20px;}
 }
 
 .image-box {img {@extend %fleximage;}
@@ -42,23 +42,6 @@ nav { > div, > ul {@extend %wrapper;}
 	&.on-right {float: right; margin: 0 0 0 $spacing-twenty;}
 	@include breakpoint(medium-size) {float: none !important; margin: 0 auto $spacing-twenty !important;}
 }
-
-// .boxes-four{
-// 	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
-// 	li {
-// 		float: left;
-// 		width: ((($width-basic - ($spacing-thirty*3))/4) / ($width-basic + $spacing-thirty))*100%;
-// 		margin-left: ($spacing-thirty/($width-basic + $spacing-thirty))*100%;
-// 	}
-// 	@include breakpoint(medium-size) {
-// 		li {
-// 			width: ((($width-basic - ($spacing-thirty * 2))/2) / ($width-basic + $spacing-thirty))*100%;
-// 		}
-// 	}
-// 	@include breakpoint(tiny-size) {
-// 		li { width: 100%; margin-left: 0;}
-// 	}
-// }
 
 .boxes-three {
 	margin-left: (-$spacing-thirty/$width-basic)*100% !important;
@@ -73,6 +56,44 @@ nav { > div, > ul {@extend %wrapper;}
 	@include breakpoint(tiny-size) {
 		li { width: 100%; margin-left: 0;}
 	}
+	&.custom-left {
+		@include customBoxes(200px, left);
+	}
+	&.custom-right {
+		@include customBoxes(200px, right);
+	}
+	// &.custom-left {
+	// 	li{
+	// 		&:first-child {
+	// 			width: ($customWidth/($width-basic + $spacing-thirty)*100%);
+	// 		}
+	// 		width: ((($width-basic - $customWidth - (2*$spacing-thirty))/2)/($width-basic + $spacing-thirty)*100%);
+	// 	}
+	// 	@include breakpoint(medium-size) {
+	// 		li{ &:first-child {float: none; margin: 0 auto $spacing-twenty; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+	// 				width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+	// 			}
+	// 	}
+	// 	@include breakpoint(tiny-size) {
+	// 		li { width: 100% !important; margin-left: 0;}
+	// 	}
+	// }
+	// &.custom-right {
+	// 	li{
+	// 		&:last-child {
+	// 			width: ($customWidth/($width-basic + $spacing-thirty)*100%);
+	// 		}
+	// 		width: ((($width-basic - $customWidth - (2*$spacing-thirty))/2)/($width-basic + $spacing-thirty)*100%);
+	// 	}
+	// 	@include breakpoint(medium-size) {
+	// 		li{ &:last-child {float: none; margin: 0 auto $spacing-twenty; clear: both; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+	// 				width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+	// 			}
+	// 	}
+	// 	@include breakpoint(tiny-size) {
+	// 		li { width: 100% !important; margin-left: 0;}
+	// 	}
+	// }
 }
 
 .boxes-four {

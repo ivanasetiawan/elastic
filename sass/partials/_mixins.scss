@@ -14,3 +14,25 @@
 @function emCalc($pxWidth) {
   @return $pxWidth / $em-base * 1em;
 }
+
+@mixin customBoxes($customWidth, $type) {
+  li {
+    width: ((($width-basic - $customWidth - (2*$spacing-thirty))/2)/($width-basic + $spacing-thirty)*100%);
+    @if $type == left {
+      &:first-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
+    }
+    @else if $type == right {
+      &:last-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
+    }
+    @include breakpoint(medium-size) {
+      @if $type == left {
+        &:first-child {float: none; margin: 0 auto $spacing-twenty; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+      }
+      @else if $type == right {
+        &:last-child {float: none; margin: 0 auto $spacing-twenty; clear: both; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+      }
+      width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+    }
+    @include breakpoint(tiny-size) { width: 100% !important; margin-left: 0;}
+  }
+}
