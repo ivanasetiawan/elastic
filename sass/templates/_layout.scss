@@ -14,7 +14,7 @@ nav { > div, > ul {@extend %wrapper;}
 }
 
 // Whole section
-.main-container {
+.main-container, .sponsors, .how {
 	> div {@extend %wrapper;}
 }
 
