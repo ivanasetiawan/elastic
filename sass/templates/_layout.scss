@@ -19,15 +19,8 @@ nav { > div, > ul {@extend %wrapper;}
 }
 
 // Content box for two columns
-.narrow-content {
-	padding: 2%;
-	float: left;
-	width: 66%;
-	@include breakpoint(medium-size) {
-		float: none;
-		width: 96%;
-	}
-}
+.narrow-content {@include col(600px, 20px, left);}
+aside {@include col(300px, 20px, right);}
 
 // Content box for full width
 .content {
@@ -55,16 +48,11 @@ nav { > div, > ul {@extend %wrapper;}
 
 .boxes-four {
 	@include boxes(4);
-}
-
-// Aside box for two columns
-aside {
-	padding: 2%;
-	width: 26%;
-	float: right;
-	@include breakpoint(medium-size) {
-		float: none;
-		width: 96%;
+	&.custom-left {
+		@include customBoxes(100px, left, 4);
+	}
+	&.custom-right {
+		@include customBoxes(200px, right, 4);
 	}
 }
 

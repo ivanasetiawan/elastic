@@ -15,25 +15,61 @@
   @return $pxWidth / $em-base * 1em;
 }
 
-@mixin customBoxes($customWidth, $type) {
-  li {
-    width: ((($width-basic - $customWidth - (2*$spacing-thirty))/2)/($width-basic + $spacing-thirty)*100%);
-    @if $type == left {
-      &:first-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
-    }
-    @else if $type == right {
-      &:last-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
-    }
-    @include breakpoint(medium-size) {
+@mixin col($width, $padding, $float, $width-basic: $width-basic) {
+  padding: ($padding/$width-basic)*100%;
+  width: ($width/$width-basic)*100%;
+  float: $float;
+  @include breakpoint(tiny-size) {
+    float: none;
+    width: 100% - (2*(($padding/$width-basic)*100%));
+  }
+  @content;
+}
+
+@mixin customBoxes($customWidth, $type, $boxes: 3) {
+  @if $boxes == 3 {
+    li {
+      width: ((($width-basic - $customWidth - (2*$spacing-thirty))/2)/($width-basic + $spacing-thirty)*100%);
       @if $type == left {
-        &:first-child {float: none; margin: 0 auto $spacing-twenty; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        &:first-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
       }
       @else if $type == right {
-        &:last-child {float: none; margin: 0 auto $spacing-twenty; clear: both; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        &:last-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
       }
-      width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+      @include breakpoint(medium-size) {
+        @if $type == left {
+          &:first-child {float: none; margin: 0 auto $spacing-twenty; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        }
+        @else if $type == right {
+          &:last-child {float: none; margin: 0 auto $spacing-twenty; clear: both; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        }
+        width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+        @content;
+      }
+      @include breakpoint(tiny-size) { width: 100% !important; margin-left: 0;}
     }
-    @include breakpoint(tiny-size) { width: 100% !important; margin-left: 0;}
+  }
+  @else if $boxes == 4 {
+    li {
+      width: ((($width-basic - $customWidth - (3*$spacing-thirty))/3)/($width-basic + $spacing-thirty)*100%);
+      @if $type == left {
+        &:first-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
+      }
+      @else if $type == right {
+        &:last-child { width: ($customWidth/($width-basic + $spacing-thirty)*100%);}
+      }
+      @include breakpoint(medium-size) {
+        @if $type == left {
+          &:first-child {float: none; margin: 0 auto $spacing-twenty; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        }
+        @else if $type == right {
+          &:last-child {float: none; margin: 0 auto $spacing-twenty; clear: both; width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%}
+        }
+        width: ((($width-basic - ($spacing-twenty * 2))/2) / ($width-basic + $spacing-twenty))*100%;
+        @content;
+      }
+      @include breakpoint(tiny-size) { width: 100% !important; margin-left: 0;}
+    }
   }
 }
 

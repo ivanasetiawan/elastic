@@ -37,3 +37,61 @@ nav {background: $color-blue; margin-bottom: $spacing-bottom;
 
 .content {margin-bottom: $spacing-bottom;}
 
+// BLOGPOST
+.blogpost {
+	article { @include col(800px, 0px, right)}
+	aside {@include col(200px, 0px, left)}
+}
+.blogpost-content {
+	.textbox {
+		@include col(560px, 0px, left, 800px) {
+			@include breakpoint(medium-size) { width: 100%;}
+		};
+	}
+	aside {@include col(215px, 0px, right, 800px) {@include breakpoint(medium-size) { width: 100%;}};}
+}
+
+.comments {background: $color-blue; clear: both; padding: 40px 0; margin: 40px 0;
+	> div {@extend %wrapper;}
+	h1 {text-align: center;}
+	article {width: emCalc(530px); margin: 0 auto; overflow: hidden;}
+	.avatar { width: emCalc(95px); float: left;
+		img {@extend %fleximage;}
+	}
+	.comment-text {width: (395px/530px)*100%; float: left; background: rgba(255, 255, 255, 0.4); padding:(20px/530px)*100%;}
+}
+
+.related {
+	ul {@extend %clearlist; overflow: hidden; padding-bottom: 40px;}
+	li {background: #fff;
+		@include breakpoint(medium-size) {
+			width: ((($width-basic - ($spacing-twenty * 2))/3) / ($width-basic + 53px))*100% !important;}
+	}
+	h2 {font-size: 18px; font-weight: normal;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
